@@ -13,18 +13,24 @@
   port = 8888
   targetPort = 3000
 
-# Handle static assets
-[[headers]]
-  for = "/images/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+# Copy static assets to build output
+[[redirects]]
+  from = "/images/*"
+  to = "/_next/static/images/:splat"
+  status = 200
 
-[[headers]]
-  for = "/logos/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+[[redirects]]
+  from = "/logos/*"
+  to = "/_next/static/logos/:splat"
+  status = 200
 
-[[headers]]
-  for = "/icons/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+[[redirects]]
+  from = "/icons/*"
+  to = "/_next/static/icons/:splat"
+  status = 200
+
+# Handle Next.js routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

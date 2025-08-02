@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable static asset optimization
+  // Disable image optimization for static assets
   images: {
     unoptimized: true
   },
@@ -8,10 +8,22 @@ const nextConfig = {
   assetPrefix: '',
   // Enable static exports
   trailingSlash: true,
-  // Ensure public folder is properly handled
+  // Copy static assets to build output
   experimental: {
     appDir: true
-  }
+  },
+  // Ensure public folder is copied
+  distDir: '.next',
+  // Handle static assets
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+      };
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;
