@@ -1,36 +1,27 @@
 [build]
-  command = "npm run build"
+  command = "chmod +x build.sh && ./build.sh"
   publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
 
 [dev]
   command = "npm run dev"
   port = 8888
   targetPort = 3000
 
-# Copy static assets to build output
+# Handle static assets
 [[redirects]]
   from = "/images/*"
-  to = "/_next/static/images/:splat"
+  to = "/static/images/:splat"
   status = 200
 
 [[redirects]]
   from = "/logos/*"
-  to = "/_next/static/logos/:splat"
+  to = "/static/logos/:splat"
   status = 200
 
 [[redirects]]
   from = "/icons/*"
-  to = "/_next/static/icons/:splat"
-  status = 200
-
-# Handle Next.js routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
+  to = "/static/icons/:splat"
   status = 200
