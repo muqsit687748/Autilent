@@ -1,0 +1,5 @@
+import Municipality from '@/components/Municipality'
+
+export default function MunicipalityPage() {
+  return <Municipality />
+} 
