@@ -9,3 +9,19 @@
   command = "npm run dev"
   port = 8888
   targetPort = 3000
+
+# Handle static assets
+[[redirects]]
+  from = "/images/*"
+  to = "/_next/static/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/logos/*"
+  to = "/_next/static/logos/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/icons/*"
+  to = "/_next/static/icons/:splat"
+  status = 200
