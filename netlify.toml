@@ -10,18 +10,18 @@
   port = 8888
   targetPort = 3000
 
-# Handle static assets
+# Handle static assets - serve from public folder
 [[redirects]]
   from = "/images/*"
-  to = "/static/images/:splat"
+  to = "/public/images/:splat"
   status = 200
 
 [[redirects]]
   from = "/logos/*"
-  to = "/static/logos/:splat"
+  to = "/public/logos/:splat"
   status = 200
 
 [[redirects]]
   from = "/icons/*"
-  to = "/static/icons/:splat"
+  to = "/public/icons/:splat"
   status = 200

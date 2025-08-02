@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npm run copy-assets",
-    "copy-assets": "cp -r public/* .next/static/ || true",
+    "build": "next build",
+    "postbuild": "cp -r public .next/",
     "start": "next start",
     "lint": "next lint"
   },
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.12.0",
     "eslint": "^8.0.0",
-    "eslint-config-next": "14.0.0"
+    "eslint-config-next": "14.0.0",
+    "fs-extra": "^11.3.0"
   }
 }
