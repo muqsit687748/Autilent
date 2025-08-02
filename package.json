@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run copy-assets",
+    "copy-assets": "cp -r public/* .next/static/ || true",
     "start": "next start",
     "lint": "next lint"
   },
