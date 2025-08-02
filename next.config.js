@@ -4,10 +4,14 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  // Ensure public assets are served correctly
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
-  // Enable static exports if needed
+  // Ensure static assets are served correctly
+  assetPrefix: '',
+  // Enable static exports
   trailingSlash: true,
+  // Ensure public folder is properly handled
+  experimental: {
+    appDir: true
+  }
 };
 
 module.exports = nextConfig;
